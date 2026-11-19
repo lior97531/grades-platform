@@ -18,7 +18,7 @@ jobs:
         service: 
          - "services/python/grades-api"
          - "services/python/grades-report"
-         - "services/web"
+         - "services/web/grades-web"
          
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
