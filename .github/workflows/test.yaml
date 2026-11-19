@@ -15,13 +15,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        service: ["services/python/grades-api", "services/python/grades-report","services/web"]
+        service: ["services/python/grades-api", "services/python/grades-report", "services/web"]
          
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-service
         with:
-          service_path: matrix.service
+          service_path: ${{ matrix.service }}
           install_python: ${{ startsWith(matrix.service, 'services/python/') }}
       - working-directory: ${{ matrix.service }}
         run: make install-ci
